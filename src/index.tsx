@@ -56,10 +56,10 @@ export default function App(): JSX.Element {
             >
               {todo.text}
             </div>
-            <button type="button" onClick={() => completeTodo(index)}>
+            <button type="button" onClick={(): void => completeTodo(index)}>
               {todo.complete ? "Incomplete" : "Complete"}
             </button>
-            <button type="button" onClick={() => removeTodo(index)}>
+            <button type="button" onClick={(): void => removeTodo(index)}>
               x
             </button>
           </Fragment>
