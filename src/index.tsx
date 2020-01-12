@@ -29,6 +29,12 @@ export default function App(): JSX.Element {
     setTodos(newTodos);
   };
 
+  const removeTodo = (index: number): void => {
+    const newTodos: ITodo[] = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
+
   return (
     <Fragment>
       <h1>To Do List</h1>
@@ -39,7 +45,7 @@ export default function App(): JSX.Element {
           onChange={e => setValue(e.target.value)}
           required
         />
-        <button type="submit">Submit</button>
+        <button type="submit">Add To Do</button>
       </form>
       <section>
         {todos.map((todo: ITodo, index: number) => (
@@ -52,6 +58,9 @@ export default function App(): JSX.Element {
             </div>
             <button type="button" onClick={() => completeTodo(index)}>
               {todo.complete ? "Incomplete" : "Complete"}
+            </button>
+            <button type="button" onClick={() => removeTodo(index)}>
+              x
             </button>
           </Fragment>
         ))}
