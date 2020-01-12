@@ -44,9 +44,14 @@ export default function App(): JSX.Element {
       <section>
         {todos.map((todo: ITodo, index: number) => (
           <Fragment>
-            <div key={index}>{todo.text}</div>
+            <div
+              key={index}
+              style={{ textDecoration: todo.complete ? "line-through" : "" }}
+            >
+              {todo.text}
+            </div>
             <button type="button" onClick={() => completeTodo(index)}>
-              {todo.complete ? "Complete" : "Incomplete"}
+              {todo.complete ? "Incomplete" : "Complete"}
             </button>
           </Fragment>
         ))}
